@@ -15,10 +15,10 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($uname)) {
-		header("Location: Login.php?error=User Name is required");
+		header("Location: PatientLogin.php?error=Username is required");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: Login.php?error=Password is required");
+        header("Location: PatientLogin.php?error=Password is required");
 	    exit();
 	}else{
 		//hashing the password
@@ -37,16 +37,16 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	header("Location: home.php");
 		        exit();
             }else{
-				header("Location: Login.php?error=Incorect User name or password");
+				header("Location: PatientLogin.php?error=Incorect Username or Password");
 		        exit();
 			}
 		}else{
-			header("Location: Login.php?error=Incorect User name or password");
+			header("Location: PatientLogin.php?error=Incorect Username or Password");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: Login.php");
+	header("Location: PatientLogin.php");
 	exit();
 }
