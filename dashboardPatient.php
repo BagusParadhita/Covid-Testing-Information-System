@@ -7,35 +7,30 @@ if (isset($_SESSION['uname']) && isset($_SESSION['password'])) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tester Dashboard</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="dashboardcss/style.css" />
   </head>
   <body>
     <div class="sidebar">
-      <h2>Tester</h2>
+      <h2>Patient</h2>
       <ul class="nav">
         <li>
-          <a href="#">
+          <a href="dashboardPatient.php">
             <span>Dashboard</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <span>Record New Test</span>
+            <span>View Profile</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <span>Update Test Result</span>
+            <span>View Testing History</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <span>Generate Test Report</span>
-          </a>
-        </li>
-        <li>
-          <a href="logout.php">
+          <a href="Logout.php">
             <span>Logout</span>
           </a>
         </li>

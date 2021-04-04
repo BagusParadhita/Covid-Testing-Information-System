@@ -1,38 +1,32 @@
 <?php
 session_start();
-if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['uname']) && isset($_SESSION['password'])) {
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test Centre Manager Dashboard</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Tester Dashboard</title>
+    <link rel="stylesheet" href="dashboardcss/style.css" />
   </head>
   <body>
     <div class="sidebar">
-      <h2>Test Centre Manager</h2>
+      <h2>Tester</h2>
       <ul class="nav">
         <li>
-          <a href="#">
+          <a href="dashboardTester.php">
             <span>Dashboard</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <span>Record Tester</span>
+            <span>Record New Test</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <span>Register Test Centre</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>Manage Kit Stock</span>
+            <span>Update Test Result</span>
           </a>
         </li>
         <li>
@@ -41,7 +35,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
           </a>
         </li>
         <li>
-          <a href="logout.php">
+          <a href="Logout.php">
             <span>Logout</span>
           </a>
         </li>
@@ -53,5 +47,5 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
     </div>
   </body>
 </html>
-<?php 
+<?php
 }

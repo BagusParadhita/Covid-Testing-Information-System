@@ -34,7 +34,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['userID'] = $row['userID'];
-            	header("Location: dashboard/managerdashboard.php");
+            	header("Location: dashboardManager.php");
 		        exit();
             }else{
 				header("Location: TestCentreManagerLogin.php?error=Incorect Username or Password");

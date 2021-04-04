@@ -34,7 +34,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['userID'] = $row['userID'];
-            	header("Location: home.php");
+            	header("Location: dashboardPatient.php");
 		        exit();
             }else{
 				header("Location: PatientLogin.php?error=Incorect Username or Password");
