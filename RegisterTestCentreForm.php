@@ -1,19 +1,13 @@
-<?php
-session_start();
-if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
-?>
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<html>
+<head>
+	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test Centre Manager Dashboard</title>
-    <link rel="stylesheet" href="dashboardcss/style.css" />
-	<link rel="stylesheet" href="dataTables.bootstrap4.min.css" />
-  </head>
-  <body>
-    <div class="sidebar">
+	<title>REGISTER TEST CENTRE</title>
+	<link rel="stylesheet" type="text/css" href="dashboardcss/style.css">
+</head>
+<body>
+	<div class="sidebar">
       <h2>Test Centre Manager</h2>
       <ul class="nav">
         <li>
@@ -48,11 +42,26 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
         </li>
       </ul>
     </div>
-
-    <div class="main">
+	
+	<div class="main">
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
-  </body>
+	
+    <form action="ManagerRegisterTestCentre.php" method="post">
+     	<h3>REGISTER TEST CENTRE</h3>
+     	<?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
+		 
+		<?php if (isset($_GET['success'])) { ?>
+     		<p class="success"><?php echo $_GET['success']; ?></p>
+     	<?php } ?>
+		
+		<label>Centre Name</label>
+		<input type="text" name="cname" placeholder="Centre Name"><br>
+
+     	<button type="submit">Save</button>
+		<a href="TestCentreData.php">Cancel</a>
+    </form>
+</body>
 </html>
-<?php 
-}

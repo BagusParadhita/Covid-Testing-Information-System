@@ -8,7 +8,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test Centre Manager Dashboard</title>
+    <title>Tester Data</title>
     <link rel="stylesheet" href="dashboardcss/style.css" />
 	<link rel="stylesheet" href="dataTables.bootstrap4.min.css" />
   </head>
@@ -52,7 +52,45 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
     <div class="main">
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
+	
+	<?php include "db_conn.php";?>
+	<div style="overflow-x: auto;">
+		<table id="tester">
+			<thead>
+				<tr>
+					<th>Centre Officer ID</th>
+					<th>Username</th>
+					<th>Password</th>
+					<th>Name</th>
+					<th>Position</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					$sql=$conn->query("SELECT * FROM centreOfficer");
+					while($co=$sql->fetch_object()){
+				?>
+					<tr>
+					<td><?php echo $co->centreOfficerID;?></td>
+					<td><?php echo $co->username;?></td>
+					<td><?php echo $co->password;?></td>
+					<td><?php echo $co->name;?></td>
+					<td><?php echo $co->position;?></td>
+				</tr>
+				<?php
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
   </body>
+	
 </html>
+
+<script>
+	$(document).ready(function() {
+		$('#tester').DataTable();
+	} );
+</script>
 <?php 
 }

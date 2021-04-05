@@ -62,3 +62,151 @@ body{
 .main h2{
     margin-top: 20px;
 }
+
+form {
+	margin: 75px;
+	width: 500px;
+	border: 2px solid #ccc;
+	padding: 30px;
+	background: #fff;
+	border-radius: 15px;
+	margin-left: 655px;
+}
+
+h2 {
+	color: #FFFFFF;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+input {
+	display: block;
+	border: 2px solid #ccc;
+	width: 95%;
+	padding: 10px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+label {
+	color: #888;
+	font-size: 18px;
+	padding: 10px;
+}
+.option{
+	margin-top: 5%;
+	text-align: center;
+	color: #FFFFFF;
+}
+.btn-group button{
+	display: inline-block;
+	background-color: #4682B4;
+  	border: 2px solid #FFFFFF;
+  	color: white;
+  	padding: 10px 24px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+  	cursor: pointer;
+  	float: left;
+	font-size: 16px;
+	border-radius: 12px;
+}
+button {
+	float: right;
+	background: #4169E1;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: none;
+	cursor: pointer;
+}
+button:hover{
+	opacity: .7;
+}
+.error {
+   background: #F2DEDE;
+   color: #A94442;
+   padding: 10px;
+   width: 95%;
+   border-radius: 5px;
+   margin: 20px auto;
+}
+
+.success {
+   background: #D4EDDA;
+   color: #40754C;
+   padding: 10px;
+   width: 95%;
+   border-radius: 5px;
+   margin: 20px auto;
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
+}
+h2{
+	margin-top: 5%;
+}
+h3{ 
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+.ca{
+	font-size: 14px;
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	color: #444;
+}
+.ca:hover{
+	text-decoration: underline;
+}
+
+#tester{
+	border-collapse: collapse;
+	width: 85.3%;
+	margin-left: 250px;
+}
+
+#tester td, #tester th{
+	border: 1px solid #1E90FF;
+	padding: 8px;
+}
+
+#tester tr: nth-child(even){background-color: #f2f2f2;}
+
+#tester tr: hover{background-color: #1E90FF;}
+
+#tester th{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #1E90FF;
+	color: white;
+}
+
+#testCentre{
+	border-collapse: collapse;
+	width: 85.3%;
+	margin-left: 250px;
+}
+
+#testCentre td, #testCentre th{
+	border: 1px solid #1E90FF;
+	padding: 8px;
+}
+
+#testCentre tr: nth-child(even){background-color: #f2f2f2;}
+
+#testCentre tr: hover{background-color: #1E90FF;}
+
+#testCentre th{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #1E90FF;
+	color: white;
+}

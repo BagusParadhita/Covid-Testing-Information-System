@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['uname']) && isset($_SESSION['password'])) {
+if (isset($_SESSION['centreOfficerID']) && isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">

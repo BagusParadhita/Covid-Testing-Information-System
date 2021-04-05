@@ -24,7 +24,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 		//hashing the password
 		$pass = md5($pass);
 		
-		$sql = "SELECT * FROM user WHERE username='$uname' AND password='$pass'";
+		$sql = "SELECT * FROM centreOfficer WHERE username='$uname' AND password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
@@ -33,7 +33,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             if ($row['username'] === $uname && $row['password'] === $pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['name'] = $row['name'];
-            	$_SESSION['userID'] = $row['userID'];
+            	$_SESSION['centreOfficerID'] = $row['centreOfficerID'];
             	header("Location: dashboardTester.php");
 		        exit();
             }else{
