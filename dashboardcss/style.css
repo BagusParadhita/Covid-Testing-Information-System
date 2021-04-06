@@ -87,6 +87,14 @@ input {
 	margin: 10px auto;
 	border-radius: 5px;
 }
+select {
+	display: block;
+	border: 2px solid #ccc;
+	width: 100%;
+	padding: 10px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
 label {
 	color: #888;
 	font-size: 18px;
@@ -204,6 +212,29 @@ h3{
 #testCentre tr: hover{background-color: #1E90FF;}
 
 #testCentre th{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #1E90FF;
+	color: white;
+}
+
+#testKit{
+	border-collapse: collapse;
+	width: 85.3%;
+	margin-left: 250px;
+}
+
+#testKit td, #testKit th{
+	border: 1px solid #1E90FF;
+	padding: 8px;
+}
+
+#testKit tr: nth-child(even){background-color: #f2f2f2;}
+
+#testKit tr: hover{background-color: #1E90FF;}
+
+#testKit th{
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;

@@ -3,7 +3,7 @@ session_start();
 include "db_conn.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])
-	&& isset($_POST['name']) && isset($_POST['re_password'])) {
+	&& isset($_POST['name']) && isset($_POST['re_password']) && isset($_POST['test-centre'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -16,6 +16,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	$uname = validate($_POST['uname']);
 	$pass = validate($_POST['password']);
 	$re_pass = validate($_POST['re_password']);
+	$tcentre = validate($_POST['test-centre']);
 	
 	$user_data = 'uname='. $uname. '&name='. $name;
 
@@ -44,7 +45,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: RecordTesterForm.php?error=The username is already taken, please try another username&$user_data");
 	    	exit();
 		}else{
-			$sql2 = "INSERT INTO centreOfficer(username, password, name, position) VALUES('$uname', '$pass', '$name', 'Tester')";
+			$sql2 = "INSERT INTO centreOfficer(username, password, name, position, centreName) VALUES('$uname', '$pass', '$name', 'Tester', '$tcentre')";
 			$result2 = mysqli_query($conn, $sql2);
 			if($result2){
 				header("Location: TesterData.php");

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>RECORD TESTER</title>
+	<title>UPDATE TEST KIT STOCK</title>
 	<link rel="stylesheet" type="text/css" href="dashboardcss/style.css">
 </head>
 <body>
@@ -47,8 +47,15 @@
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
 	
-    <form action="ManagerRecordTester.php" method="post">
-     	<h3>RECORD TESTER</h3>
+	<?php
+	include "db_conn.php";
+	
+	$sql = mysqli_query($conn, "SELECT * FROM testKit WHERE kitID='$_GET[id]'");
+	$data = mysqli_fetch_array($sql);
+	?>
+	
+    <form action="" method="post">
+     	<h3>UPDATE TEST KIT STOCK</h3>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
@@ -57,43 +64,23 @@
      		<p class="success"><?php echo $_GET['success']; ?></p>
      	<?php } ?>
 		
-		<label>Name</label>
-		<?php if (isset($_GET['name'])) { ?>
-		 	<input type="text" name="name" placeholder="Name" value="<?php echo $_GET['name']; ?>"><br>
-     	<?php }else{ ?>
-		 	<input type="text" name="name" placeholder="Name"><br>
-		<?php }?>
+		<label>Test Kit ID</label>
+		<input type="text" name="kitID" placeholder="Test Kit ID" value="<?php echo $data['kitID']; ?>"><br>
 		
-		<label>Username</label>
-		<?php if (isset($_GET['uname'])) { ?>
-		 	<input type="text" name="uname" placeholder="Username" value="<?php echo $_GET['uname']; ?>"><br>
-     	<?php }else{ ?>
-		 	<input type="text" name="uname" placeholder="Username"><br>
-		<?php }?>
+		<label>Available Stock</label>
+		<input type="number" name="availableStock" placeholder="Available Stock" value="<?php echo $data['availableStock']; ?>"><br>
 
-     	<label>Password</label>
-     	<input type="password" name="password" placeholder="Password"><br>
-		 
-		<label>Confirm Password</label>
-     	<input type="password" name="re_password" placeholder="Confirm Password"><br>
-		
-		<?php
-		$mysqli = NEW MySQLi('localhost', 'root', '', 'covidtestinginformationsystem');
-		$resultSet = $mysqli->query("SELECT centreName FROM testCentre");
-		?>
-		
-		<label>Test Centre Name</label><br>
-		<select name="test-centre">
-		<?php
-		while($rows = $resultSet->fetch_assoc()){
-			$centreName = $rows['centreName'];
-			echo "<option value='$centreName'>$centreName</option>";
-		}
-		?>
-		</select><br>
-
-     	<button type="submit">Save</button>
-		<a href="TesterData.php">Cancel</a>
+     	<button type="submit" name="update">Update</button>
+		<a href="TestKitData.php">Cancel</a>
     </form>
+	
+	<?php
+	include "db_conn.php";
+	if (isset($_POST['update'])) {
+		mysqli_query($conn, "UPDATE testKit SET availableStock = '$_POST[availableStock]' WHERE kitID = '$_GET[id]'");
+		header("Location: TestKitData.php");
+		exit();
+	}
+	?>
 </body>
 </html>

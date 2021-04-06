@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>RECORD TESTER</title>
+	<title>MANAGE TEST KIT STOCK</title>
 	<link rel="stylesheet" type="text/css" href="dashboardcss/style.css">
 </head>
 <body>
@@ -47,8 +47,8 @@
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
 	
-    <form action="ManagerRecordTester.php" method="post">
-     	<h3>RECORD TESTER</h3>
+    <form action="ManagerManageTestKitStock.php" method="post">
+     	<h3>MANAGE TEST KIT STOCK</h3>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
@@ -57,25 +57,15 @@
      		<p class="success"><?php echo $_GET['success']; ?></p>
      	<?php } ?>
 		
-		<label>Name</label>
-		<?php if (isset($_GET['name'])) { ?>
-		 	<input type="text" name="name" placeholder="Name" value="<?php echo $_GET['name']; ?>"><br>
+		<label>Test Kit Name</label>
+		<?php if (isset($_GET['tname'])) { ?>
+		 	<input type="text" name="tname" placeholder="Test Name" value="<?php echo $_GET['tname']; ?>"><br>
      	<?php }else{ ?>
-		 	<input type="text" name="name" placeholder="Name"><br>
+		 	<input type="text" name="tname" placeholder="Test Name"><br>
 		<?php }?>
 		
-		<label>Username</label>
-		<?php if (isset($_GET['uname'])) { ?>
-		 	<input type="text" name="uname" placeholder="Username" value="<?php echo $_GET['uname']; ?>"><br>
-     	<?php }else{ ?>
-		 	<input type="text" name="uname" placeholder="Username"><br>
-		<?php }?>
-
-     	<label>Password</label>
-     	<input type="password" name="password" placeholder="Password"><br>
-		 
-		<label>Confirm Password</label>
-     	<input type="password" name="re_password" placeholder="Confirm Password"><br>
+		<label>Available Stock</label>
+		<input type="number" name="astock" placeholder="Available Stock"><br>
 		
 		<?php
 		$mysqli = NEW MySQLi('localhost', 'root', '', 'covidtestinginformationsystem');
@@ -93,7 +83,7 @@
 		</select><br>
 
      	<button type="submit">Save</button>
-		<a href="TesterData.php">Cancel</a>
+		<a href="TestKitData.php">Cancel</a>
     </form>
 </body>
 </html>

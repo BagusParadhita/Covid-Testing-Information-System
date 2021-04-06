@@ -15,19 +15,19 @@
             <span>Dashboard</span>
           </a>
         </li>
+		<li>
+          <a href="RegisterTestCentreForm.php">
+            <span>Register Test Centre</span>
+          </a>
+        </li>
         <li>
           <a href="RecordTesterForm.php">
             <span>Record Tester</span>
           </a>
         </li>
         <li>
-          <a href="RegisterTestCentreForm.php">
-            <span>Register Test Centre</span>
-          </a>
-        </li>
-        <li>
           <a href="#">
-            <span>Manage Kit Stock</span>
+            <span>Manage Test Kit Stock</span>
           </a>
         </li>
         <li>

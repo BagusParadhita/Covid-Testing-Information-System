@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
 ?>
 
 <!DOCTYPE html>
@@ -21,19 +21,19 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
             <span>Dashboard</span>
           </a>
         </li>
+		<li>
+          <a href="RegisterTestCentreForm.php">
+            <span>Register Test Centre</span>
+          </a>
+        </li>
         <li>
           <a href="RecordTesterForm.php">
             <span>Record Tester</span>
           </a>
         </li>
         <li>
-          <a href="RegisterTestCentreForm.php">
-            <span>Register Test Centre</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>Manage Kit Stock</span>
+          <a href="ManageTestKitStockForm.php">
+            <span>Manage Test Kit Stock</span>
           </a>
         </li>
         <li>
@@ -59,19 +59,16 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
 			<thead>
 				<tr>
 					<th>Centre ID</th>
-					<th>Centre Officer ID</th>
 					<th>Centre Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-					//$sql=$conn->query("SELECT userID FROM user INNER JOIN testCentre ON userID = centreOfficerID");
 					$sql=$conn->query("SELECT * FROM testCentre");
 					while($co=$sql->fetch_object()){
 				?>
 					<tr>
 					<td><?php echo $co->centreID;?></td>
-					<td><?php echo $co->centreOfficerID;?></td>
 					<td><?php echo $co->centreName;?></td>
 				</tr>
 				<?php

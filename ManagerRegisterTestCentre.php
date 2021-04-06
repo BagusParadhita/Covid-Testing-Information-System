@@ -23,13 +23,11 @@ if (isset($_POST['cname'])){
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) > 0) {
-			header("Location: RegisterTestCentreForm.php?error=The centre name is already taken, please try another centre name&$user_data");
+			header("Location: RegisterTestCentreForm.php?error=The test center has been registered, please enter the name of another test center that has not been registered&$user_data");
 	    	exit();
 		}else{
-			$sql2 = "INSERT INTO testCentre(centreName) VALUES($_SESSION['userID'] = $row['userID'], '$cname')";
+			$sql2 = "INSERT INTO testCentre(centreName) VALUES('$cname')";
 			$result2 = mysqli_query($conn, $sql2);
-			/*$sql3 = "SELECT userID FROM user INNER JOIN testCentre ON userID = centreOfficerID";
-			$result3 = mysqli_query($conn, $sql3);*/
 			if($result2){
 				header("Location: TestCentreData.php");
 	    		exit();

@@ -47,7 +47,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			$sql2 = "INSERT INTO user(username, password, name) VALUES('$uname', '$pass', '$name')";
 			$result2 = mysqli_query($conn, $sql2);
 			if($result2){
-				header("Location: Register.php?success=Your account has been created successfully&$user_data");
+				header("Location: TestCentreManagerLogin.php?success=Your account has been created successfully&$user_data");
 	    		exit();
 			}else{
 				header("Location: Register.php?error=unknown error occured&$user_data");

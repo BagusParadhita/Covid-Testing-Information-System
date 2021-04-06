@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
 ?>
 
 <!DOCTYPE html>
@@ -21,19 +21,19 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
             <span>Dashboard</span>
           </a>
         </li>
+		<li>
+          <a href="RegisterTestCentreForm.php">
+            <span>Register Test Centre</span>
+          </a>
+        </li>
         <li>
           <a href="RecordTesterForm.php">
             <span>Record Tester</span>
           </a>
         </li>
         <li>
-          <a href="RegisterTestCentreForm.php">
-            <span>Register Test Centre</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>Manage Kit Stock</span>
+          <a href="ManageTestKitStockForm.php">
+            <span>Manage Test Kit Stock</span>
           </a>
         </li>
         <li>
@@ -58,11 +58,11 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
 		<table id="tester">
 			<thead>
 				<tr>
-					<th>Centre Officer ID</th>
 					<th>Username</th>
 					<th>Password</th>
 					<th>Name</th>
 					<th>Position</th>
+					<th>Test Centre Name</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -71,11 +71,11 @@ if (isset($_SESSION['userID']) && isset($_SESSION['username'])) {
 					while($co=$sql->fetch_object()){
 				?>
 					<tr>
-					<td><?php echo $co->centreOfficerID;?></td>
 					<td><?php echo $co->username;?></td>
 					<td><?php echo $co->password;?></td>
 					<td><?php echo $co->name;?></td>
 					<td><?php echo $co->position;?></td>
+					<td><?php echo $co->centreName;?></td>
 				</tr>
 				<?php
 					}

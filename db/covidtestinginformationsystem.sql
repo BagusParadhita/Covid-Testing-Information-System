@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2021 pada 13.43
+-- Waktu pembuatan: 06 Apr 2021 pada 18.09
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -25,11 +25,77 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `centreofficer`
+--
+
+CREATE TABLE `centreofficer` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `centreName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `centreofficer`
+--
+
+INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centreName`) VALUES
+('sasuke4life', '410e7892f596e775bb0788daf21eaefe', 'Sakura Haruno', 'Tester', 'Sanglah General Hospital'),
+('SuperKingCowBaby', '827ccb0eea8a706c4c34a16891f84e7b', 'So Junghwan', 'Tester', 'Tabanan General Hospital');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `testcentre`
+--
+
+CREATE TABLE `testcentre` (
+  `centreID` int(255) NOT NULL,
+  `centreName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `testcentre`
+--
+
+INSERT INTO `testcentre` (`centreID`, `centreName`) VALUES
+(1, 'Tabanan General Hospital'),
+(2, 'RSUD Sanjiwani Gianyar'),
+(3, 'Sanglah General Hospital'),
+(4, 'RSUD Kabupaten Buleleng'),
+(5, 'RSUD Blambangan');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `testkit`
+--
+
+CREATE TABLE `testkit` (
+  `kitID` int(255) NOT NULL,
+  `testName` varchar(255) NOT NULL,
+  `availableStock` int(255) NOT NULL,
+  `centreName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `testkit`
+--
+
+INSERT INTO `testkit` (`kitID`, `testName`, `availableStock`, `centreName`) VALUES
+(1, 'Corona Swab Stick', 10, 'Tabanan General Hospital'),
+(2, 'VTM Kit', 25, 'Tabanan General Hospital'),
+(3, 'RT PCR Test Kit', 30, 'RSUD Blambangan'),
+(4, 'RNA Extraction Kit', 50, 'RSUD Kabupaten Buleleng');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
-  `userID` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL
@@ -39,29 +105,53 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`userID`, `username`, `password`, `name`) VALUES
-(1, 'joheun', '202cb962ac59075b964b07152d234b70', 'Bagus'),
-(2, 'nanaji', '202cb962ac59075b964b07152d234b70', 'Nana');
+INSERT INTO `user` (`username`, `password`, `name`) VALUES
+('joheun', '202cb962ac59075b964b07152d234b70', 'Bagus Paradhita'),
+('nanaji', '289dff07669d7a23de0ef88d2f7129e7', 'Nana');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indeks untuk tabel `centreofficer`
+--
+ALTER TABLE `centreofficer`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indeks untuk tabel `testcentre`
+--
+ALTER TABLE `testcentre`
+  ADD PRIMARY KEY (`centreID`);
+
+--
+-- Indeks untuk tabel `testkit`
+--
+ALTER TABLE `testkit`
+  ADD PRIMARY KEY (`kitID`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT untuk tabel `testcentre`
 --
-ALTER TABLE `user`
-  MODIFY `userID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `testcentre`
+  MODIFY `centreID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `testkit`
+--
+ALTER TABLE `testkit`
+  MODIFY `kitID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
