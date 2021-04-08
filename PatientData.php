@@ -8,7 +8,7 @@ if (isset($_SESSION['username'])) {
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Record New Test</title>
+	<title>Test Patient Data</title>
 	<link rel="stylesheet" href="dashboardcss/style.css" />
 	<link rel="stylesheet" href="dataTables.bootstrap4.min.css" />
 </head>
@@ -54,6 +54,7 @@ if (isset($_SESSION['username'])) {
 			<thead>
 				<tr>
 					<th>Test ID</th>
+					<th>Kit ID</th>
 					<th>Username</th>
 					<th>Password</th>
 					<th>Name</th>
@@ -71,6 +72,7 @@ if (isset($_SESSION['username'])) {
 					echo "
 					<tr>
 						<td>$display[testID]</td>
+						<td>$display[kitID]</td>
 						<td>$display[username]</td>
 						<td>$display[password]</td>
 						<td>$display[name]</td>

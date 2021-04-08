@@ -26,7 +26,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="ManageTestKitStockForm.php">
             <span>Manage Test Kit Stock</span>
           </a>
         </li>

@@ -63,6 +63,7 @@ body{
 form {
 	margin: 75px;
 	width: 500px;
+	height: 100%;
 	border: 2px solid #ccc;
 	padding: 30px;
 	background: #fff;
@@ -173,7 +174,8 @@ h3{
 #tester{
 	border-collapse: collapse;
 	width: 85.3%;
-	margin-left: 250px;
+	margin-left: 265px;
+	margin-top: 70px;
 }
 
 #tester td, #tester th{
@@ -196,7 +198,8 @@ h3{
 #testCentre{
 	border-collapse: collapse;
 	width: 85.3%;
-	margin-left: 250px;
+	margin-left: 265px;
+	margin-top: 70px;
 }
 
 #testCentre td, #testCentre th{
@@ -219,7 +222,8 @@ h3{
 #testKit{
 	border-collapse: collapse;
 	width: 85.3%;
-	margin-left: 250px;
+	margin-left: 265px;
+	margin-top: 70px;
 }
 
 #testKit td, #testKit th{
@@ -242,7 +246,8 @@ h3{
 #patient{
 	border-collapse: collapse;
 	width: 85.3%;
-	margin-left: 250px;
+	margin-left: 265px;
+	margin-top: 70px;
 }
 
 #patient td, #patient th{

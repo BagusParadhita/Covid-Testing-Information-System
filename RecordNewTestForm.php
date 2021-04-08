@@ -83,6 +83,20 @@
 			<option value= "infected"  > Infected </option>
 			<option value= "suspect"  > Suspect </option>
 		</select><br>
+		
+		<?php
+		$mysqli = NEW MySQLi('localhost', 'root', '', 'covidtestinginformationsystem');
+		$resultSet = $mysqli->query("SELECT kitID FROM testkit");
+		?>
+		<label>Kit ID</label><br>
+		<select name="kitID">
+		<?php
+		while($rows = $resultSet->fetch_assoc()){
+			$kitID = $rows['kitID'];
+			echo "<option value='$kitID'>$kitID</option>";
+		}
+		?>
+		</select><br>
 
      	<button type="submit">Save</button>
 		<a href="PatientData.php">Cancel</a>

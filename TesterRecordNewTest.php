@@ -12,6 +12,7 @@ if (isset($_POST['username']) && isset($_POST['password'])
 	   return $data;
 	}
 
+	$kitID = validate($_POST['kitID']);
 	$name = validate($_POST['name']);
 	$username = validate($_POST['username']);
 	$pass = validate($_POST['password']);
@@ -46,7 +47,7 @@ if (isset($_POST['username']) && isset($_POST['password'])
 			header("Location: RecordNewTestForm.php?error=The username is already taken, please try another username&$user_data");
 	    	exit();
 		}else{
-			$sql2 = "INSERT INTO covidtest(username, password, name, symptoms, patientType, status) VALUES('$username', '$pass', '$name', '$symptoms', '$patientType', 'pending')";
+			$sql2 = "INSERT INTO covidtest(kitID, username, password, name, symptoms, patientType, status) VALUES('$kitID','$username', '$pass', '$name', '$symptoms', '$patientType', 'pending')";
 			$result2 = mysqli_query($conn, $sql2);
 			if($result2){
 				header("Location: PatientData.php");
