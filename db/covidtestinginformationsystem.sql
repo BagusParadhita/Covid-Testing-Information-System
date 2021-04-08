@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Apr 2021 pada 18.05
+-- Waktu pembuatan: 08 Apr 2021 pada 10.28
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -33,16 +33,16 @@ CREATE TABLE `centreofficer` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `position` varchar(255) NOT NULL,
-  `centreName` varchar(255) NOT NULL
+  `centreID` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `centreofficer`
 --
 
-INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centreName`) VALUES
-('sasuke4life', '410e7892f596e775bb0788daf21eaefe', 'Sakura Haruno', 'Tester', 'Sanglah General Hospital'),
-('SuperKingCowBaby', '827ccb0eea8a706c4c34a16891f84e7b', 'So Junghwan', 'Tester', 'Tabanan General Hospital');
+INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centreID`) VALUES
+('sasuke4life', '410e7892f596e775bb0788daf21eaefe', 'Sakura Haruno', 'Tester', 3),
+('SuperKingCowBaby', '827ccb0eea8a706c4c34a16891f84e7b', 'So Junghwan', 'Tester', 1);
 
 -- --------------------------------------------------------
 
@@ -101,18 +101,18 @@ CREATE TABLE `testkit` (
   `kitID` int(255) NOT NULL,
   `testName` varchar(255) NOT NULL,
   `availableStock` int(255) NOT NULL,
-  `centreName` varchar(255) NOT NULL
+  `centreID` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `testkit`
 --
 
-INSERT INTO `testkit` (`kitID`, `testName`, `availableStock`, `centreName`) VALUES
-(1, 'Corona Swab Stick', 10, 'Tabanan General Hospital'),
-(2, 'VTM Kit', 25, 'Tabanan General Hospital'),
-(3, 'RT PCR Test Kit', 30, 'RSUD Blambangan'),
-(4, 'RNA Extraction Kit', 50, 'RSUD Kabupaten Buleleng');
+INSERT INTO `testkit` (`kitID`, `testName`, `availableStock`, `centreID`) VALUES
+(1, 'Corona Swab Stick', 50, 2),
+(2, 'VTM Kit', 86, 3),
+(3, 'RT PCR Test Kit', 80, 1),
+(4, 'RNA Extraction Kit', 69, 1);
 
 -- --------------------------------------------------------
 
