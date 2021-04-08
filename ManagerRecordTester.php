@@ -45,7 +45,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: RecordTesterForm.php?error=The username is already taken, please try another username&$user_data");
 	    	exit();
 		}else{
-			$sql2 = "INSERT INTO centreOfficer(username, password, name, position, centreName) VALUES('$uname', '$pass', '$name', 'Tester', '$tcentre')";
+			$sql2 = "INSERT INTO centreOfficer(username, password, name, position, centreID) VALUES('$uname', '$pass', '$name', 'Tester', '$tcentre')";
 			$result2 = mysqli_query($conn, $sql2);
 			if($result2){
 				header("Location: TesterData.php");

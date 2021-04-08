@@ -61,7 +61,7 @@ if (isset($_SESSION['username'])) {
 					<th>Kit ID</th>
 					<th>Test Kit Name</th>
 					<th>Available Stock</th>
-					<th>Test Centre Name</th>
+					<th>Test Centre ID</th>
 					<th>Update Stock</th>
 				</tr>
 			</thead>
@@ -74,7 +74,7 @@ if (isset($_SESSION['username'])) {
 							<td>$show[kitID]</td>
 							<td>$show[testName]</td>
 							<td>$show[availableStock]</td>
-							<td>$show[centreName]</td>
+							<td>$show[centreID]</td>
 							<td>
 								<a href='UpdateTestKitStockForm.php?id=$show[kitID]'> Update </a>
 							</td>

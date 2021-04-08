@@ -12,7 +12,7 @@ if (isset($_POST['update'])) {
 	}
 	
 	$sql = "UPDATE testKit SET availableStock = '$_POST[availableStock]' WHERE kitID = '$_GET[update]'";
-	if(mysqli_query($conn, sql)){
+	if(mysqli_query($conn, $sql)){
 		header("Location: TestKitData.php");
 		exit();
 	}else{

@@ -33,7 +33,6 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             if ($row['username'] === $uname && $row['password'] === $pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['name'] = $row['name'];
-            	$_SESSION['centreOfficerID'] = $row['centreOfficerID'];
             	header("Location: dashboardTester.php");
 		        exit();
             }else{

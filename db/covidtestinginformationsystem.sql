@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Apr 2021 pada 18.09
+-- Waktu pembuatan: 07 Apr 2021 pada 18.05
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -43,6 +43,31 @@ CREATE TABLE `centreofficer` (
 INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centreName`) VALUES
 ('sasuke4life', '410e7892f596e775bb0788daf21eaefe', 'Sakura Haruno', 'Tester', 'Sanglah General Hospital'),
 ('SuperKingCowBaby', '827ccb0eea8a706c4c34a16891f84e7b', 'So Junghwan', 'Tester', 'Tabanan General Hospital');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `covidtest`
+--
+
+CREATE TABLE `covidtest` (
+  `testID` int(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `symptoms` varchar(255) NOT NULL,
+  `patientType` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `testDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `covidtest`
+--
+
+INSERT INTO `covidtest` (`testID`, `username`, `password`, `name`, `symptoms`, `patientType`, `status`, `testDate`) VALUES
+(1, 'patient1', '202cb962ac59075b964b07152d234b70', 'Patient', 'cough', 'suspect', 'pending', '2021-04-07 15:55:30'),
+(2, 'jametKun', '289dff07669d7a23de0ef88d2f7129e7', 'Junaedi Jamet', 'fever', 'closecontact', 'pending', '2021-04-07 16:03:17');
 
 -- --------------------------------------------------------
 
@@ -120,6 +145,12 @@ ALTER TABLE `centreofficer`
   ADD PRIMARY KEY (`username`);
 
 --
+-- Indeks untuk tabel `covidtest`
+--
+ALTER TABLE `covidtest`
+  ADD PRIMARY KEY (`testID`);
+
+--
 -- Indeks untuk tabel `testcentre`
 --
 ALTER TABLE `testcentre`
@@ -140,6 +171,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `covidtest`
+--
+ALTER TABLE `covidtest`
+  MODIFY `testID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `testcentre`

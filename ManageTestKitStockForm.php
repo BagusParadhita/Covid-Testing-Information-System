@@ -69,15 +69,15 @@
 		
 		<?php
 		$mysqli = NEW MySQLi('localhost', 'root', '', 'covidtestinginformationsystem');
-		$resultSet = $mysqli->query("SELECT centreName FROM testCentre");
+		$resultSet = $mysqli->query("SELECT centreID FROM testCentre");
 		?>
 		
-		<label>Test Centre Name</label><br>
+		<label>Test Centre ID</label><br>
 		<select name="test-centre">
 		<?php
 		while($rows = $resultSet->fetch_assoc()){
-			$centreName = $rows['centreName'];
-			echo "<option value='$centreName'>$centreName</option>";
+			$centreID = $rows['centreID'];
+			echo "<option value='$centreID'>$centreID</option>";
 		}
 		?>
 		</select><br>

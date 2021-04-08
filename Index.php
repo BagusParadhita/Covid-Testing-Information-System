@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h2>WELCOME TO THE COVID TESTING INFORMATION SYSTEM</h2>
+	<h1>WELCOME TO THE COVID TESTING INFORMATION SYSTEM</h1>
 	<div class="option">
 		<h2>Select Your Option:</h2>
 		<div class="btn-group">

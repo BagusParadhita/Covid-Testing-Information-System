@@ -3,31 +3,26 @@
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>RECORD TESTER</title>
+	<title>Record New Test</title>
 	<link rel="stylesheet" type="text/css" href="dashboardcss/style.css">
 </head>
 <body>
 	<div class="sidebar">
-      <h2>Test Centre Manager</h2>
+      <h2>Tester</h2>
       <ul class="nav">
         <li>
-          <a href="dashboardManager.php">
+          <a href="dashboardTester.php">
             <span>Dashboard</span>
           </a>
         </li>
 		<li>
-          <a href="RegisterTestCentreForm.php">
-            <span>Register Test Centre</span>
+          <a href="RecordNewTestForm.php">
+            <span>Record New Test</span>
           </a>
         </li>
         <li>
-          <a href="RecordTesterForm.php">
-            <span>Record Tester</span>
-          </a>
-        </li>
-        <li>
-          <a href="ManageTestKitStockForm.php">
-            <span>Manage Test Kit Stock</span>
+          <a href="#">
+            <span>Update Test Result</span>
           </a>
         </li>
         <li>
@@ -47,8 +42,8 @@
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
 	
-    <form action="ManagerRecordTester.php" method="post">
-     	<h3>RECORD TESTER</h3>
+    <form action="TesterRecordNewTest.php" method="post">
+     	<h3>Record New Test</h3>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
@@ -65,10 +60,10 @@
 		<?php }?>
 		
 		<label>Username</label>
-		<?php if (isset($_GET['uname'])) { ?>
-		 	<input type="text" name="uname" placeholder="Username" value="<?php echo $_GET['uname']; ?>"><br>
+		<?php if (isset($_GET['username'])) { ?>
+		 	<input type="text" name="username" placeholder="Username" value="<?php echo $_GET['username']; ?>"><br>
      	<?php }else{ ?>
-		 	<input type="text" name="uname" placeholder="Username"><br>
+		 	<input type="text" name="username" placeholder="Username"><br>
 		<?php }?>
 
      	<label>Password</label>
@@ -76,24 +71,21 @@
 		 
 		<label>Confirm Password</label>
      	<input type="password" name="re_password" placeholder="Confirm Password"><br>
-		
-		<?php
-		$mysqli = NEW MySQLi('localhost', 'root', '', 'covidtestinginformationsystem');
-		$resultSet = $mysqli->query("SELECT centreID FROM testCentre");
-		?>
-		
-		<label>Test Centre ID</label><br>
-		<select name="test-centre">
-		<?php
-		while($rows = $resultSet->fetch_assoc()){
-			$centreID = $rows['centreID'];
-			echo "<option value='$centreID'>$centreID</option>";
-		}
-		?>
+
+		<label> Symptoms </label>
+		<input type="text" name="symptoms" placeholder="Symptoms"><br>
+
+		<label>Patient Type</label><br>
+		<select name="patientType">
+			<option value= "returnee"  > Returnee </option>
+			<option value= "quarantined"  > Quarantined </option>
+			<option value= "closecontact"  > Close Contact </option>
+			<option value= "infected"  > Infected </option>
+			<option value= "suspect"  > Suspect </option>
 		</select><br>
 
      	<button type="submit">Save</button>
-		<a href="TesterData.php">Cancel</a>
+		<a href="PatientData.php">Cancel</a>
     </form>
 </body>
 </html>

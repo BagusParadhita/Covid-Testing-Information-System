@@ -28,7 +28,7 @@ if (isset($_POST['tname']) && isset($_POST['astock']) && isset($_POST['test-cent
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) <= 0) {
-			$sql2 = "INSERT INTO testKit(testName, availableStock, centreName) VALUES('$tname', '$astock', '$tcentre')";
+			$sql2 = "INSERT INTO testKit(testName, availableStock, centreID) VALUES('$tname', '$astock', '$tcentre')";
 			$result2 = mysqli_query($conn, $sql2);
 			if($result2){
 				header("Location: TestKitData.php");

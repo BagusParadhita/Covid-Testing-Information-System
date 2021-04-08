@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['centreOfficerID']) && isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ if (isset($_SESSION['centreOfficerID']) && isset($_SESSION['username'])) {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="RecordNewTestForm.php">
             <span>Record New Test</span>
           </a>
         </li>

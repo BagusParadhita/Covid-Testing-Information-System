@@ -62,7 +62,7 @@ if (isset($_SESSION['username'])) {
 					<th>Password</th>
 					<th>Name</th>
 					<th>Position</th>
-					<th>Test Centre Name</th>
+					<th>Test Centre ID</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,7 +75,7 @@ if (isset($_SESSION['username'])) {
 					<td><?php echo $co->password;?></td>
 					<td><?php echo $co->name;?></td>
 					<td><?php echo $co->position;?></td>
-					<td><?php echo $co->centreName;?></td>
+					<td><?php echo $co->centreID;?></td>
 				</tr>
 				<?php
 					}
