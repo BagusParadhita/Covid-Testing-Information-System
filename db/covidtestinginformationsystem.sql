@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2021 at 01:16 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Waktu pembuatan: 08 Apr 2021 pada 10.28
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `centreofficer`
+-- Struktur dari tabel `centreofficer`
 --
 
 CREATE TABLE `centreofficer` (
@@ -36,7 +37,7 @@ CREATE TABLE `centreofficer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `centreofficer`
+-- Dumping data untuk tabel `centreofficer`
 --
 
 INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centreID`) VALUES
@@ -46,34 +47,32 @@ INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `covidtest`
+-- Struktur dari tabel `covidtest`
 --
 
 CREATE TABLE `covidtest` (
   `testID` int(255) NOT NULL,
-  `kitID` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `symptoms` varchar(255) NOT NULL,
   `patientType` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `testDate` timestamp NOT NULL DEFAULT current_timestamp()
+  `testDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `covidtest`
+-- Dumping data untuk tabel `covidtest`
 --
 
-INSERT INTO `covidtest` (`testID`, `kitID`, `username`, `password`, `name`, `symptoms`, `patientType`, `status`, `testDate`) VALUES
-(1, 2, 'patient1', '202cb962ac59075b964b07152d234b70', 'Patient', 'fever', 'infected', 'pending', '2021-04-07 15:55:30'),
-(2, 1, 'jametKun', '289dff07669d7a23de0ef88d2f7129e7', 'Junaedi Jamet', 'cough', 'closecontact', 'pending', '2021-04-07 16:03:17'),
-(3, 1, 'irama', '202cb962ac59075b964b07152d234b70', 'roma', 'cough', 'infected', 'pending', '2021-04-08 13:03:31');
+INSERT INTO `covidtest` (`testID`, `username`, `password`, `name`, `symptoms`, `patientType`, `status`, `testDate`) VALUES
+(1, 'patient1', '202cb962ac59075b964b07152d234b70', 'Patient', 'cough', 'suspect', 'pending', '2021-04-07 15:55:30'),
+(2, 'jametKun', '289dff07669d7a23de0ef88d2f7129e7', 'Junaedi Jamet', 'fever', 'closecontact', 'pending', '2021-04-07 16:03:17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `testcentre`
+-- Struktur dari tabel `testcentre`
 --
 
 CREATE TABLE `testcentre` (
@@ -82,7 +81,7 @@ CREATE TABLE `testcentre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `testcentre`
+-- Dumping data untuk tabel `testcentre`
 --
 
 INSERT INTO `testcentre` (`centreID`, `centreName`) VALUES
@@ -95,7 +94,7 @@ INSERT INTO `testcentre` (`centreID`, `centreName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `testkit`
+-- Struktur dari tabel `testkit`
 --
 
 CREATE TABLE `testkit` (
@@ -106,11 +105,11 @@ CREATE TABLE `testkit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `testkit`
+-- Dumping data untuk tabel `testkit`
 --
 
 INSERT INTO `testkit` (`kitID`, `testName`, `availableStock`, `centreID`) VALUES
-(1, 'Corona Swab Stick', 61, 2),
+(1, 'Corona Swab Stick', 50, 2),
 (2, 'VTM Kit', 86, 3),
 (3, 'RT PCR Test Kit', 80, 1),
 (4, 'RNA Extraction Kit', 69, 1);
@@ -118,7 +117,7 @@ INSERT INTO `testkit` (`kitID`, `testName`, `availableStock`, `centreID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -128,7 +127,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`username`, `password`, `name`) VALUES
@@ -140,53 +139,53 @@ INSERT INTO `user` (`username`, `password`, `name`) VALUES
 --
 
 --
--- Indexes for table `centreofficer`
+-- Indeks untuk tabel `centreofficer`
 --
 ALTER TABLE `centreofficer`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `covidtest`
+-- Indeks untuk tabel `covidtest`
 --
 ALTER TABLE `covidtest`
   ADD PRIMARY KEY (`testID`);
 
 --
--- Indexes for table `testcentre`
+-- Indeks untuk tabel `testcentre`
 --
 ALTER TABLE `testcentre`
   ADD PRIMARY KEY (`centreID`);
 
 --
--- Indexes for table `testkit`
+-- Indeks untuk tabel `testkit`
 --
 ALTER TABLE `testkit`
   ADD PRIMARY KEY (`kitID`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `covidtest`
+-- AUTO_INCREMENT untuk tabel `covidtest`
 --
 ALTER TABLE `covidtest`
-  MODIFY `testID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `testID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `testcentre`
+-- AUTO_INCREMENT untuk tabel `testcentre`
 --
 ALTER TABLE `testcentre`
   MODIFY `centreID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `testkit`
+-- AUTO_INCREMENT untuk tabel `testkit`
 --
 ALTER TABLE `testkit`
   MODIFY `kitID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

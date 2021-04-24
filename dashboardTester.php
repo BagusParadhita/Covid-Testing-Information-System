@@ -30,7 +30,7 @@ if (isset($_SESSION['username'])) {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="TesterGenerateTestReport.php">
             <span>Generate Test Report</span>
           </a>
         </li>

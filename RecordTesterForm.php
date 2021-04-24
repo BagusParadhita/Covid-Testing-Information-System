@@ -31,7 +31,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="ManagerGenerateTestReport.php">
             <span>Generate Test Report</span>
           </a>
         </li>
