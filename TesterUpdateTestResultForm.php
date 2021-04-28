@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Update Test Record</title>
+	<title>Update Test Result Form</title>
 	<link rel="stylesheet" type="text/css" href="dashboardcss/style.css">
 </head>
 <body>
@@ -51,7 +51,7 @@
 	
   <div class = "formtest">
     <form action="" method="post">
-     	<h3>Update Record New Test</h3>
+     	<h3>Update Test Result</h3>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
@@ -63,29 +63,23 @@
     <label>Test ID</label>
 		<input type="text" name="testID" placeholder="TestID" value="<?php echo $data['testID']; ?>"><br>
 
-		<label>Symptoms</label>
-		<input type="text" name="symptoms" placeholder="Symptoms" value="<?php echo $data['symptoms']; ?>"><br>
-		
-    <label>Patient Type</label><br>
-		<select name="patientType">
-      <option value ="<?php echo $data['patientType']; ?>"></option>
-			<option value= "returnee"  > Returnee </option>
-			<option value= "quarantined"  > Quarantined </option>
-			<option value= "closecontact"  > Close Contact </option>
-			<option value= "infected"  > Infected </option>
-			<option value= "suspect"  > Suspect </option>
+    <label>Test Result</label><br>
+		<select name="result">
+		<option value ="<?php echo $data['result']; ?>"></option>
+			<option value= "Positive"  > Positive </option>
+			<option value= "Negative"  > Negative </option>
 		</select><br>
 
      	<button type="submit" name="update">Update</button>
-		<a href="PatientData.php">Cancel</a>
+		<a href="UpdateTestResult.php">Cancel</a>
     </form>
-	</div>
-
+  </div>
+	
 	<?php
 	include "db_conn.php";
 	if (isset($_POST['update'])) {
-		mysqli_query($conn, "UPDATE covidtest SET symptoms = '$_POST[symptoms]', patientType = '$_POST[patientType]' WHERE testID = '$_GET[id]'");
-		header("Location: PatientData.php");
+		mysqli_query($conn, "UPDATE covidtest SET result = '$_POST[result]', status = 'Complete' WHERE testID = '$_GET[id]'");
+		header("Location: UpdateTestResult.php");
 		exit();
 	}
 	?>

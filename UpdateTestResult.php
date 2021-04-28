@@ -8,7 +8,7 @@ if (isset($_SESSION['username'])) {
 <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Test Report Data</title>
+	<title>Update Patient Data</title>
 	<link rel="stylesheet" href="dashboardcss/style.css" />
 	<link rel="stylesheet" href="dataTables.bootstrap4.min.css" />
 </head>
@@ -63,6 +63,7 @@ if (isset($_SESSION['username'])) {
 					<th>Status</th>
 					<th>Test Date</th>
 					<th>Test Result</th>
+					<th>Update Test</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -81,6 +82,9 @@ if (isset($_SESSION['username'])) {
 						<td>$display[status]</td>
 						<td>$display[testDate]</td>
 						<td>$display[result]</td>
+						<td>
+							<a href='TesterUpdateTestResultForm.php?id=$display[testID]'> Update </a>
+						</td>
 					</tr>";
 				}
 			?>

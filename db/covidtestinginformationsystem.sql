@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Apr 2021 pada 10.28
+-- Waktu pembuatan: 28 Apr 2021 pada 13.06
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -41,6 +41,7 @@ CREATE TABLE `centreofficer` (
 --
 
 INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centreID`) VALUES
+('Kangaroo8', '8d3c153080743e0b9390574c8aedb300', 'Bang Chan', 'Tester', 3),
 ('sasuke4life', '410e7892f596e775bb0788daf21eaefe', 'Sakura Haruno', 'Tester', 3),
 ('SuperKingCowBaby', '827ccb0eea8a706c4c34a16891f84e7b', 'So Junghwan', 'Tester', 1);
 
@@ -52,22 +53,26 @@ INSERT INTO `centreofficer` (`username`, `password`, `name`, `position`, `centre
 
 CREATE TABLE `covidtest` (
   `testID` int(255) NOT NULL,
+  `kitID` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `symptoms` varchar(255) NOT NULL,
   `patientType` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `testDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `testDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `result` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `covidtest`
 --
 
-INSERT INTO `covidtest` (`testID`, `username`, `password`, `name`, `symptoms`, `patientType`, `status`, `testDate`) VALUES
-(1, 'patient1', '202cb962ac59075b964b07152d234b70', 'Patient', 'cough', 'suspect', 'pending', '2021-04-07 15:55:30'),
-(2, 'jametKun', '289dff07669d7a23de0ef88d2f7129e7', 'Junaedi Jamet', 'fever', 'closecontact', 'pending', '2021-04-07 16:03:17');
+INSERT INTO `covidtest` (`testID`, `kitID`, `username`, `password`, `name`, `symptoms`, `patientType`, `status`, `testDate`, `result`) VALUES
+(1, 2, 'patient1', '202cb962ac59075b964b07152d234b70', 'Patient', 'cough', 'suspect', 'Complete', '2021-04-07 15:55:30', 'Negative'),
+(2, 2, 'jametKun', '289dff07669d7a23de0ef88d2f7129e7', 'Junaedi Jamet', 'fever', 'closecontact', 'Complete', '2021-04-07 16:03:17', 'Negative'),
+(3, 3, 'saburo123', 'ae38eabd769393868d1e68e13cf86b76', 'Putu Saburo Uzumaki', 'Cough', 'quarantined', 'Complete', '2021-04-26 16:09:32', 'Negative'),
+(4, 5, 'FennecFox', 'c7d37f8a71fc5744e850df621d197d40', 'Kang Jeongin', 'chest pain', 'infected', 'Complete', '2021-04-28 10:56:09', 'Positive');
 
 -- --------------------------------------------------------
 
@@ -89,7 +94,8 @@ INSERT INTO `testcentre` (`centreID`, `centreName`) VALUES
 (2, 'RSUD Sanjiwani Gianyar'),
 (3, 'Sanglah General Hospital'),
 (4, 'RSUD Kabupaten Buleleng'),
-(5, 'RSUD Blambangan');
+(5, 'RSUD Blambangan'),
+(6, 'Bali Royal Hospital');
 
 -- --------------------------------------------------------
 
@@ -112,7 +118,8 @@ INSERT INTO `testkit` (`kitID`, `testName`, `availableStock`, `centreID`) VALUES
 (1, 'Corona Swab Stick', 50, 2),
 (2, 'VTM Kit', 86, 3),
 (3, 'RT PCR Test Kit', 80, 1),
-(4, 'RNA Extraction Kit', 69, 1);
+(4, 'RNA Extraction Kit', 69, 1),
+(5, 'PathoDetect Test Kit', 96, 3);
 
 -- --------------------------------------------------------
 
@@ -132,6 +139,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`username`, `password`, `name`) VALUES
 ('joheun', '202cb962ac59075b964b07152d234b70', 'Bagus Paradhita'),
+('Junior', '12476f6314f51e9b46e2bb449f936cde', 'Park Jinyoung'),
 ('nanaji', '289dff07669d7a23de0ef88d2f7129e7', 'Nana');
 
 --
@@ -176,19 +184,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `covidtest`
 --
 ALTER TABLE `covidtest`
-  MODIFY `testID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `testID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `testcentre`
 --
 ALTER TABLE `testcentre`
-  MODIFY `centreID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `centreID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `testkit`
 --
 ALTER TABLE `testkit`
-  MODIFY `kitID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kitID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

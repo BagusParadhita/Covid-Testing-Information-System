@@ -67,6 +67,7 @@ if (isset($_SESSION['username'])) {
                     <th>Symptoms</th>
 					<th>Status</th>
 					<th>Test Date</th>
+					<th>Test Result</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -84,6 +85,7 @@ if (isset($_SESSION['username'])) {
 						<td>$display[symptoms]</td>
 						<td>$display[status]</td>
 						<td>$display[testDate]</td>
+						<td>$display[result]</td>
 					</tr>";
 				}
 			?>

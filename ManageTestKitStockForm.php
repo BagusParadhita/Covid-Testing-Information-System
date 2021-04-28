@@ -47,6 +47,7 @@
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
 	
+  <div class = "formtest">
     <form action="ManagerManageTestKitStock.php" method="post">
      	<h3>MANAGE TEST KIT STOCK</h3>
      	<?php if (isset($_GET['error'])) { ?>
@@ -85,5 +86,6 @@
      	<button type="submit">Save</button>
 		<a href="TestKitData.php">Cancel</a>
     </form>
+  </div>
 </body>
 </html>

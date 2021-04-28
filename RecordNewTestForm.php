@@ -21,7 +21,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="UpdateTestResult.php">
             <span>Update Test Result</span>
           </a>
         </li>
@@ -42,6 +42,7 @@
       <b>COVID TESTING INFORMATION SYSTEM</b>
     </div>
 	
+	<div class = "formtest">
     <form action="TesterRecordNewTest.php" method="post">
      	<h3>Record New Test</h3>
      	<?php if (isset($_GET['error'])) { ?>
@@ -101,5 +102,6 @@
      	<button type="submit">Save</button>
 		<a href="PatientData.php">Cancel</a>
     </form>
+	</div>
 </body>
 </html>

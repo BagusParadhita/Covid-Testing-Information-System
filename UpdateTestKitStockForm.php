@@ -54,6 +54,7 @@
 	$data = mysqli_fetch_array($sql);
 	?>
 	
+  <div class = "formtest">
     <form action="" method="post">
      	<h3>UPDATE TEST KIT STOCK</h3>
      	<?php if (isset($_GET['error'])) { ?>
@@ -73,6 +74,7 @@
      	<button type="submit" name="update">Update</button>
 		<a href="TestKitData.php">Cancel</a>
     </form>
+  </div>
 	
 	<?php
 	include "db_conn.php";
