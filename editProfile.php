@@ -64,7 +64,7 @@ if (isset($_SESSION['username'])) {
                         <form action="UpdateProfile.php" method="post" >
                             <div class="form-group ">
                                 <input type="hidden" name="testID" value="<?=$row['testID'];?>">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Full name">
+                                <input type="text" class="form-control" id="name" name="name" value="<?php echo $row['name']; ?>">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password" name="passwordOld" placeholder="Old Password">
